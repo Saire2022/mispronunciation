@@ -1,5 +1,5 @@
 import axios from "axios";
-import * as FileSystem from "expo-file-system";
+import * as FileSystem from "expo-file-system/legacy";
 import { Buffer } from "buffer";
 import { Alert } from "react-native";
 import * as SecureStore from 'expo-secure-store'; // Importar SecureStore
@@ -43,7 +43,7 @@ export const query = async (audioUri) => {
 
     // Leer el archivo de audio como binario (buffer)
     const audioFile = await FileSystem.readAsStringAsync(audioUri, {
-      encoding: FileSystem.EncodingType.Base64,
+      encoding: "base64",
     });
 
     const response = await axios({
